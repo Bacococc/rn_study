@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { wp, hp } from '../utils/resposive';
 
 const SectionHeader = ({ title, subtitle }: { title: string; subtitle: string }) => {
   return (
     <SafeAreaView style={styles.header}>
-      {/* SafeAreaView로 헤더 영역을 감싸서 안전한 영역에 위치하도록 함 */}
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>         {/* 큰 제목 */}
-      <Text style={styles.subtitle}>{subtitle}</Text>   {/* 소제목 */}
-    </View>
+      <View style={styles.container}>
+        <Text style={styles.title}>{title}</Text>         {/* 큰 제목 */}
+        <Text style={styles.subtitle}>{subtitle}</Text>   {/* 소제목 */}
+      </View>
     </SafeAreaView>
   );
 };
@@ -18,23 +18,24 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: '#f9f9f9',
     width: '100%',
-    paddingHorizontal: 10,
+    paddingHorizontal: wp(2),
+    height: hp(16),
   },
   container: {
     width : '100%',
-    left : 20,
+    left : wp(4),
     top: 0,
-    marginTop: 10,
+    marginTop: hp(0.6),
   },
   title: {
-    fontSize: 26,
+    fontSize: wp(6),
     fontWeight: 'semibold',
     color: '#000',
   },
   subtitle: {
-    fontSize: 20,
+    fontSize: wp(4),
     color: '#888',
-    marginTop: 6,
+    marginTop: wp(1),
   },
 });
 

@@ -8,7 +8,7 @@ import SectionHeader from '../components/SectionHeader';
 import SortButton from '../components/SortButton';
 import { wp, hp } from '../utils/resposive';
 import CustomCard from '../components/CustomCard';
-import { CustomModal } from '../components/CustomModal';
+import CustomModal from '../components/CustomModal';
 
 type RootStackParamList = {
   Home: undefined;
@@ -20,6 +20,8 @@ const DeliveryHomeScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const [rooms, setRooms] = useState<any[]>([]);
   const [sortOrder, setSortOrder] = useState(0); 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedRoom, setSelectedRoom] = useState(null);
 
   useFocusEffect(
   useCallback(() => {
@@ -88,11 +90,21 @@ const DeliveryHomeScreen = () => {
             width={wp(90)}
             height={wp(40)}
             room={item}
-            onPress={() => {CustomModal}}
+            onPress={() => {
+              setSelectedRoom(item);   // 어떤 방을 눌렀는지 저장
+              setIsModalVisible(true); // 모달 표시
+            }}
           />
         )}
       />
       </View>
+      {isModalVisible && selectedRoom && (
+        <CustomModal
+          visible={isModalVisible}
+          room={selectedRoom}
+          onClose={() => setIsModalVisible(false)}
+        />
+      )};
     </View>
   );
 };
@@ -106,7 +118,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center', 
     alignItems: 'center' ,
-    paddingBottom: hp(11.6),
+    paddingBottom: hp(14.4),
   },
 });
 
