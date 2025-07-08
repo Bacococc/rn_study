@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import SectionHeader from '../components/SectionHeader';
 import SortButton from '../components/SortButton';
-import { wp } from '../utils/resposive';
+import { wp, hp } from '../utils/resposive';
 import CustomCard from '../components/CustomCard';
 import { CustomModal } from '../components/CustomModal';
 
@@ -73,18 +73,16 @@ const DeliveryHomeScreen = () => {
   return (
     <View style={styles.container}>
       <SectionHeader title="배달 Delivery" subtitle="배달비 부담은 낮추고, 배는 든든하게!" />
-      <View style={{ alignItems: 'left', flexDirection: 'row' }}>
-      <SortButton 
-        sortOrder={sortOrder} 
+      <View style={{ alignItems: 'left', flexDirection: 'row', marginLeft: wp(5) }}>
+      <SortButton
+        sortOrder={sortOrder}
         setSortOrder={setSortOrder}
-        style={{ elevation: 2 }}
-        title="최신순"
-        width={wp(20)}
       />
       </View>
+      <View style={styles.scrollSection}>
       <FlatList
         data={sortedRooms}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <CustomCard
             width={wp(90)}
@@ -94,6 +92,7 @@ const DeliveryHomeScreen = () => {
           />
         )}
       />
+      </View>
     </View>
   );
 };
@@ -101,8 +100,14 @@ const DeliveryHomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-  }
+    paddingTop: 10,
+  },
+  scrollSection: {
+    flex: 1,
+    justifyContent: 'center', 
+    alignItems: 'center' ,
+    paddingBottom: hp(11.6),
+  },
 });
 
 export default DeliveryHomeScreen;
