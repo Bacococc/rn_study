@@ -1,0 +1,100 @@
+{
+  "restaurants" : [{
+    "id" : 12,
+    "restaurantName" : "BHC",
+    "address" : "서울시 강남구 역삼동",
+    "phoneNumber" : "02-1234-5678",
+    "businessHours" : "10:00-22:00",
+    "deliveryFee" : 3000,
+    "imageUrl" : "https://example.com/restaurant.jpg"
+  },
+  {
+    "id" : 10,
+    "restaurantName" : "두찜",
+    "address" : "서울시 강남구 역삼동",
+    "phoneNumber" : "02-1234-5678",
+    "businessHours" : "10:00-22:00",
+    "deliveryFee" : 3000,
+    "imageUrl" : "https://example.com/restaurant.jpg"
+  }],
+
+  "foodFareRoom" : [{
+    "id" : 1,
+    "creatorUserId" : 2401076,
+    "restaurantId" : 12,
+    "deadline" : "2025-10-01T12:00:00Z",
+    "maxMembers" : 4
+  },
+  {
+      "id" : 2,
+      "creatorUserId" : 2401076,
+      "restaurantId" : 10,
+      "deadline" : "2025-10-08T12:00:00Z",
+      "maxMembers" : 6   
+      },
+    {
+      "id" : 3,
+      "creatorUserId" : 249212,
+      "restaurantId" : 10,
+      "deadline" : "2025-7-10T12:00:00Z",
+      "maxMembers" : 4
+      }],
+
+  "foodResult" : [{
+    "id" : 1,
+    "foodFareRoomId" : 1,
+    "progress" : 0,
+    "description" : ""
+  }],
+
+  "FoodJoinUser" : [{
+    "id" : 1,
+    "userId" : 2401076,
+    "deliveryConfirmation" : 0,
+    "food_fare_room_id" : 1,
+    "orderMenu" : 1
+  },
+  {
+    "id" : 2,
+    "userId" : 2401076,
+    "deliveryConfirmation" : 0,
+    "food_fare_room_id" : 1,
+    "orderMenu" : 1
+  },
+  {
+    "id" : 3,
+    "userId" : 2401076,
+    "deliveryConfirmation" : 0,
+    "food_fare_room_id" : 1,
+    "orderMenu" : 1
+  },
+  {
+    "id" : 4,
+    "userId" : 2401076,
+    "deliveryConfirmation" : 0,
+    "food_fare_room_id" : 2,
+    "orderMenu" : 1
+  },
+  {
+    "id" : 5,
+    "userId" : 2401076,
+    "deliveryConfirmation" : 0,
+    "food_fare_room_id" : 3,
+    "orderMenu" : 1
+  }],
+
+  "foodOrder" : [{
+    "id" : 1,
+    "foodFareRoomId" : 1,
+    "foodItemId" : 1,
+    "quantity" : 2
+  }],
+
+  "foodItem" : [{
+    "id" : 1,
+    "restaurantId" : 12,
+    "itemName" : "치킨",
+    "price" : 20000,
+    "imageUrl" : "https://example.com/chicken.jpg"
+  }]
+}
