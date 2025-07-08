@@ -38,7 +38,14 @@
       "restaurantId" : 10,
       "deadline" : "2025-7-10T12:00:00Z",
       "maxMembers" : 4
-      }],
+      },
+      {
+        "id" : 4,
+        "creatorUserId" : 249212,
+        "restaurantId" : 12,
+        "deadline" : "2025-7-12T12:00:00Z",
+        "maxMembers" : 8
+        }],
 
   "foodResult" : [{
     "id" : 1,
