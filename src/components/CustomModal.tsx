@@ -9,7 +9,7 @@ const CustomModal = ({ visible, room, onClose }) => {
 
   return (
     <Modal
-      animationType="slide"
+      animationType="fade"
       transparent={true}
       visible={visible}
       onRequestClose={onClose}
