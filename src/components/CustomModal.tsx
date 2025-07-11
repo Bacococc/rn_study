@@ -4,16 +4,14 @@ import { wp, hp } from '../utils/resposive';
 
 type Room = {
   deadline: string;
-  restaurant?: {
-    restaurantName: string;
-  };
+  restaurantName: string;
   maxMember: number;
 };
 
 type CustomModalProps = {
   visible: boolean;
   room: Room;
-  onClose: () => void;
+  onClose: () => void; //함수 실행 후 return 값을 받을 필요가 없음
 };
 
 const CustomModal = ({ visible, room, onClose }: CustomModalProps) => {
@@ -31,7 +29,7 @@ const CustomModal = ({ visible, room, onClose }: CustomModalProps) => {
     >
       <View style={styles.modalOverlay}>
         <View style={styles.modalContent}>
-          <Text style={styles.title}>{room.restaurant?.restaurantName} 파티에 참가하시겠어요?</Text>
+          <Text style={styles.title}>{room.restaurantName} 파티에 참가하시겠어요?</Text>
           <Text style={styles.text}>배달 시작 시간 : {formatted}</Text>
           {room.maxMember === 0 ? (
             <Text style={styles.text}>

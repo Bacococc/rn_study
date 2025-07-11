@@ -10,7 +10,7 @@ import { wp, hp } from '../utils/resposive';
 import CustomCard from '../components/CustomCard';
 import CustomModal from '../components/CustomModal';
 
-type RootStackParamList = {
+type RootStackParamList = {  //별도 파일로 분리 예정
   Home: undefined;
   DeliveryHome: undefined;
   RoomDetail: { roomId: number };
@@ -18,7 +18,7 @@ type RootStackParamList = {
 
 const DeliveryHomeScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const [rooms, setRooms] = useState<any[]>([]);
+  const [rooms, setRooms] = useState<any[]>([]); //배열 안에 any 타입 허용
   const [sortOrder, setSortOrder] = useState(0); 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
@@ -84,7 +84,7 @@ const DeliveryHomeScreen = () => {
       <View style={styles.scrollSection}>
       <FlatList
         data={sortedRooms}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id.toSting()} //key 설정, 이 부분 꼭 String으로 바꿔서 넣기, FlatList가 내부의 요소들 까지 자동으로 Key값 부여
         renderItem={({ item }) => (
           <CustomCard
             width={wp(90)}
