@@ -2,8 +2,23 @@ import React from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { wp, hp } from '../utils/resposive';
 
-const CustomModal = ({ visible, room, onClose }) => {
-  if (!room) return null; // room이 설정되기 전이면 렌더링 X
+type Room = {
+  deadline: string;
+  restaurant?: {
+    restaurantName: string;
+  };
+  maxMember: number;
+};
+
+type CustomModalProps = {
+  visible: boolean;
+  room: Room;
+  onClose: () => void;
+};
+
+const CustomModal = ({ visible, room, onClose }: CustomModalProps) => {
+  
+  if (!room) return null; 
   const deadline = new Date(room.deadline);
   const formatted = `${deadline.getMonth() + 1}월 ${deadline.getDate()}일 ${deadline.getHours()}시 ${deadline.getMinutes()}분`;
 
