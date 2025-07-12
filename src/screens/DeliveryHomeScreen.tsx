@@ -18,7 +18,7 @@ type RootStackParamList = {  //별도 파일로 분리 예정
 
 const DeliveryHomeScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const [rooms, setRooms] = useState<any[]>([]); //배열 안에 any 타입 허용
+  const [rooms, setRooms] = useState<any[]>([]); 
   const [sortOrder, setSortOrder] = useState(0); 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
@@ -75,7 +75,7 @@ const DeliveryHomeScreen = () => {
   return (
     <View style={styles.container}>
       <SectionHeader title="배달 Delivery" subtitle="배달비 부담은 낮추고, 배는 든든하게!" />
-      <View style={{ alignItems: 'left', flexDirection: 'row', marginLeft: wp(5) }}>
+      <View style={{ flexDirection: 'row', marginLeft: wp(5) }}>
       <SortButton
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
